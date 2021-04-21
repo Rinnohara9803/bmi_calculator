@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-const textStyleChange = TextStyle(
-  fontSize: 25.0,
-);
+import 'constants.dart';
 
 class ForIcon extends StatelessWidget {
   final String textName;
@@ -22,7 +19,7 @@ class ForIcon extends StatelessWidget {
         SizedBox(height: 10.0),
         Text(
           this.textName,
-          style: textStyleChange,
+          style: ktextStyleChange,
         )
       ],
     );
