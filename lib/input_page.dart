@@ -16,7 +16,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   gender selectedGender;
 
-  int userHeight = 120;
+  int userHeight = 100;
   int userWeight = 20;
   int userAge = 18;
 
@@ -104,7 +104,7 @@ class _InputPageState extends State<InputPage> {
                     child: Slider(
                       value: userHeight.toDouble(),
                       min: 0.0,
-                      max: 180.0,
+                      max: 200.0,
                       onChanged: (double theNewHeight) {
                         setState(() {
                           userHeight = theNewHeight.round();
@@ -237,7 +237,6 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ),
               );
-              print('The result is printed.');
             },
             child: Container(
               child: Center(

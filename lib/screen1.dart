@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
-  Screen1(
-      {@required this.theResult,
-      @required this.theResultText,
-      @required this.theInterpretation});
+  Screen1({this.theResult, this.theResultText, this.theInterpretation});
 
-  final String theResult;
+  final double theResult;
   final String theResultText;
   final String theInterpretation;
 
@@ -44,13 +41,32 @@ class Screen1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Center(
-                    child: Text('theResult'),
+                      child: Text(
+                    theResultText.toUpperCase(),
+                    style: TextStyle(
+                      // color: Colors.blueAccent,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )),
+                  Center(
+                    child: Text(
+                      theResult.toStringAsFixed(1),
+                      style: TextStyle(
+                          fontSize: 100.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
+                    ),
                   ),
                   Center(
-                    child: Text('theResultText'),
-                  ),
-                  Center(
-                    child: Text('theInterpretation'),
+                    child: Text(
+                      theInterpretation,
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        // color: Colors.blueAccent,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -72,7 +88,10 @@ class Screen1 extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Re-Calculate',
-                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent),
                 ),
               ),
             ),
