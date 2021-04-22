@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
-  Screen1({this.theResult, this.theResultText, this.theInterpretation});
+  Screen1(
+      {@required this.theResult,
+      @required this.theResultText,
+      @required this.theInterpretation});
 
   final String theResult;
   final String theResultText;
@@ -40,28 +43,37 @@ class Screen1 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Center(child: Text(theResult)),
-                  Center(child: Text(theResultText)),
                   Center(
-                    child: Text(theInterpretation),
+                    child: Text('theResult'),
+                  ),
+                  Center(
+                    child: Text('theResultText'),
+                  ),
+                  Center(
+                    child: Text('theInterpretation'),
                   ),
                 ],
               ),
             ),
             flex: 5,
           ),
-          Container(
-            margin: EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              color: Colors.black12,
-            ),
-            height: 80.0,
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                'Re-Calculate',
-                style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              margin: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+                color: Colors.black12,
+              ),
+              height: 80.0,
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  'Re-Calculate',
+                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           )

@@ -8,10 +8,6 @@ import 'resultBrain.dart';
 
 enum gender { male, female }
 
-int theHeight = 120;
-int userWeight = 20;
-int userAge = 18;
-
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -19,6 +15,10 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   gender selectedGender;
+
+  int userHeight = 120;
+  int userWeight = 20;
+  int userAge = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        theHeight.toString(),
+                        userHeight.toString(),
                         style: knumberStyleChange,
                       ),
                       Text('cm'),
@@ -102,12 +102,12 @@ class _InputPageState extends State<InputPage> {
                         overlayColor: Colors.white,
                         thumbShape: RoundSliderThumbShape()),
                     child: Slider(
-                      value: theHeight.toDouble(),
+                      value: userHeight.toDouble(),
                       min: 0.0,
                       max: 180.0,
                       onChanged: (double theNewHeight) {
                         setState(() {
-                          theHeight = theNewHeight.round();
+                          userHeight = theNewHeight.round();
                         });
                       },
                     ),
@@ -138,9 +138,11 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  userWeight++;
-                                });
+                                setState(
+                                  () {
+                                    userWeight++;
+                                  },
+                                );
                               },
                               child: Icon(
                                 Icons.arrow_circle_up,
@@ -152,9 +154,11 @@ class _InputPageState extends State<InputPage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  userWeight--;
-                                });
+                                setState(
+                                  () {
+                                    userWeight--;
+                                  },
+                                );
                               },
                               child: Icon(
                                 Icons.arrow_circle_down,
@@ -221,7 +225,7 @@ class _InputPageState extends State<InputPage> {
           GestureDetector(
             onTap: () {
               CalculatorBrain calc =
-                  CalculatorBrain(height: theHeight, weight: userWeight);
+                  CalculatorBrain(height: userHeight, weight: userWeight);
 
               Navigator.push(
                 context,
